@@ -157,17 +157,17 @@ class SubAccountController extends Controller
 //                return error(GENERAL_ERROR_MESSAGE, ERROR_400);
             }
             DB::commit();
-            return redirect()->route('sub_account.listing')
+            return redirect()->route('account_sub_account.listing')
                 ->with('success', __('Sub Acccount created successfully.'));
 //            return successWithData(GENERAL_SUCCESS_MESSAGE, $model->fresh());
         } catch (QueryException $e) {
             DB::rollBack();
-            return redirect()->route('sub_account.listing')
+            return redirect()->route('account_sub_account.listing')
                 ->with('error', $e->getMessage());
 //            return error($e->getMessage(), ERROR_500);
         } catch (Exception $e) {
             DB::rollBack();
-            return redirect()->route('sub_account.listing')
+            return redirect()->route('account_sub_account.listing')
                 ->with('error', $e->getMessage());
 //            return error($e->getMessage(), ERROR_500);
         }

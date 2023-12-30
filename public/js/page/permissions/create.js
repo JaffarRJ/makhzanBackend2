@@ -1,4 +1,4 @@
-$("form[name='addform']").validate({
+$("form[name='permissionForm']").validate({
     // Define validation rules
     rules: {
         name: {

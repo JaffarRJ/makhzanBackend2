@@ -38,10 +38,10 @@ return [
 'Show' => 'دکھانا',
 'Active' => 'فعال',
 'Deactive' => 'غیر فعال',
-'Choose' => 'منتخب کریں',
+'Choose' => '...انتخاب کریں',
 'Add Account Transaction' => 'اکاؤنٹ ٹرانزیکشن شامل کریں',
-    'Party' => 'پارٹی',
-    'Transaction' => 'ٹرانزیکشن',
+'Party' => 'پارٹی',
+'Transaction' => 'ٹرانزیکشن',
     'Account' => 'اکاؤنٹ',
     'Sub Account' => 'ذیلی اکاؤنٹ',
     'Amount' => 'رقم',
@@ -75,6 +75,6 @@ return [
     'ID' => 'آئی ڈی',
     'User List' => 'صارفوں کی فہرست',
     'ID' => 'آئی ڈی',
-
-    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
+    'Choose ...' => '...انتخاب کریں...',
+    // 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
     ];

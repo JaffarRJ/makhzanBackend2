@@ -150,17 +150,17 @@ class RoleController extends Controller
 //                return error(GENERAL_ERROR_MESSAGE, ERROR_400);
             }
             DB::commit();
-            return redirect()->route('role.listing')
+            return redirect()->route('role_permission.listing')
                 ->with('success', __('Role created successfully.'));
 //            return successWithData(GENERAL_SUCCESS_MESSAGE, $model->fresh());
         } catch (QueryException $e) {
             DB::rollBack();
-            return redirect()->route('role.listing')
+            return redirect()->route('role_permission.listing')
                 ->with('error', $e->getMessage());
 //            return error($e->getMessage(), ERROR_500);
         } catch (Exception $e) {
             DB::rollBack();
-            return redirect()->route('role.listing')
+            return redirect()->route('role_permission.listing')
                 ->with('error', $e->getMessage());
 //            return error($e->getMessage(), ERROR_500);
         }

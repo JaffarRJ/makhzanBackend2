@@ -1,4 +1,4 @@
-$("form[name='addform']").validate({
+$("form[name='partyTransaction']").validate({
     // Define validation rules
     rules: {
         party_id: {

@@ -7,8 +7,8 @@
 @endsection
 @section('content')
     <h3 class="card-title">{{ __('messages.Add Party Transaction')}}</h3>
-    <a href="{{route('party.create')}}" class="btn btn-success mb-3"><i class="bi bi-star me-1"></i>{{ __('messages.Add Party') }}</a>
-    <a href="{{route('transaction.create')}}" class="btn btn-success mb-3"><i class="bi bi-star me-1"></i>{{ __('messages.Add Transaction') }}</a>
+    <a href="#" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#partyModel"><i class="bi bi-star me-1"></i>{{ __('messages.Add Party') }}</a>
+    <a href="#" class="btn btn-success mb-3"  data-bs-toggle="modal" data-bs-target="#transactionModel"><i class="bi bi-star me-1"></i>{{ __('messages.Add Transaction') }}</a>
     <div class="card-options">
         <a href="#" class="card-options-collapse" data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a>
     </div>
@@ -17,7 +17,9 @@
             {{ session('error') }}
         </div>
     @endif
-    <form action="{{route('party_transaction.store')}}" name="addform" class="card-body" method="POST">
+    @include('partyTransaction/modelParty')
+    @include('partyTransaction/modelTransaction')
+    <form action="{{route('party_transaction.store')}}" name="partyTransaction" class="card-body" method="POST">
         @csrf
         <div class="row clearfix">
             <div class="col-md-6 col-sm-12">
@@ -69,6 +71,8 @@
 @endsection
 @section('scripts')
     <script src="{{asset('js/page/partyTransactions/create.js')}}"></script>
+    <script src="{{asset('js/page/parties/create.js')}}"></script>
+    <script src="{{asset('js/page/transactions/create.js')}}"></script>s
     <script>
         $(document).ready(function () {
             // Handle change event on the party dropdown

@@ -170,16 +170,16 @@ class PartyController extends Controller
                 redirect()->back()->with('error', 'Data no save properly');
             }
             DB::commit();
-            return redirect()->route('party.listing')
+            return redirect()->route('party_transaction.listing')
                 ->with('success', __('Party created successfully.'));
         } catch (QueryException $e) {
             DB::rollBack();
-            return redirect()->route('party.listing')
+            return redirect()->route('party_transaction.listing')
                 ->with('error', $e->getMessage());
 //            return error($e->getMessage(), ERROR_500);
         } catch (Exception $e) {
             DB::rollBack();
-            return redirect()->route('party.listing')
+            return redirect()->route('party_transaction.listing')
                 ->with('error', $e->getMessage());
         }
     }

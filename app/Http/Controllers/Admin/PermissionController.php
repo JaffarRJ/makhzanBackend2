@@ -151,17 +151,17 @@ class PermissionController extends Controller
             }
             DB::commit();
 //            return successWithData(GENERAL_SUCCESS_MESSAGE, $model->fresh());
-            return redirect()->route('permission.listing')
+            return redirect()->route('role_permission.listing')
                 ->with('success', __('Permission created successfully.'));
         } catch (QueryException $e) {
             DB::rollBack();
 //            return error($e->getMessage(), ERROR_500);
-            return redirect()->route('permission.listing')
+            return redirect()->route('role_permission.listing')
                 ->with('error', $e->getMessage());
         } catch (Exception $e) {
             DB::rollBack();
 //            return error($e->getMessage(), ERROR_500);
-            return redirect()->route('permission.listing')
+            return redirect()->route('role_permission.listing')
                 ->with('error', $e->getMessage());
         }
     }

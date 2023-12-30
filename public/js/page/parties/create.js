@@ -13,7 +13,7 @@ jQuery.validator.addMethod(
     },
     "Please enter a valid Email."
 );
-$("form[name='addform']").validate({
+$("form[name='partyForm']").validate({
     // Define validation rules
     rules: {
         name: {

@@ -7,8 +7,8 @@
 @endsection
 @section('content')
     <h3 class="card-title">{{ __('messages.Add Role Permission')}}</h3>
-    <a href="{{route('role.create')}}" class="btn btn-success mb-3"><i class="bi bi-star me-1"></i>{{ __('messages.Add Role') }}</a>
-    <a href="{{route('permission.create')}}" class="btn btn-success mb-3"><i class="bi bi-star me-1"></i>{{ __('messages.Add Permission') }}</a>
+    <a href="#" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#roleModel"><i class="bi bi-star me-1"></i>{{ __('messages.Add Role') }}</a>
+    <a href="#" class="btn btn-success mb-3"  data-bs-toggle="modal" data-bs-target="#permissionModel"><i class="bi bi-star me-1"></i>{{ __('messages.Add Permission') }}</a>
     <div class="card-options">
         <a href="#" class="card-options-collapse" data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a>
     </div>
@@ -17,6 +17,8 @@
             {{ session('error') }}
         </div>
     @endif
+    @include('rolePermission/modelRole')
+    @include('rolePermission/modelPermission')
     <form action="{{route('role_permission.store')}}" name="addform" class="card-body" method="POST">
         @csrf
         <div class="row clearfix">
@@ -68,7 +70,10 @@
     </form>
 @endsection
 @section('scripts')
+    <script src="{{asset('js/page/roles/create.js')}}"></script>
+    <script src="{{asset('js/page/permissions/create.js')}}"></script>
     <script src="{{asset('js/page/rolePermissions/create.js')}}"></script>
+
     <script>
         $(document).ready(function () {
             // Handle change event on the role dropdown

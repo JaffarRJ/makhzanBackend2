@@ -7,8 +7,8 @@
 @endsection
 @section('content')
     <h3 class="card-title">{{ __('messages.Add Manage Account')}}</h3>
-    <a href="{{route('account.create')}}" target="_blank" class="btn btn-success mb-3"><i class="bi bi-star me-1"></i>{{ __('messages.Add Account') }}</a>
-    <a href="{{route('sub_account.create')}}" target="_blank" class="btn btn-success mb-3"><i class="bi bi-star me-1"></i>{{ __('messages.Add Sub Account') }}</a>
+    <a href="#" target="_blank" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#accountModel"><i class="bi bi-star me-1"></i>{{ __('messages.Add Account') }}</a>
+    <a href="#" target="_blank" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#subAccountModel"><i class="bi bi-star me-1"></i>{{ __('messages.Add Sub Account') }}</a>
     <div class="card-options">
         <a href="#" class="card-options-collapse" data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a>
     </div>
@@ -17,6 +17,8 @@
             {{ session('error') }}
         </div>
     @endif
+    @include('accountSubAccount/modelAccount')
+    @include('accountSubAccount/modelSubAccount')
     <form action="{{route('account_sub_account.store')}}" name="addform" class="card-body" method="POST">
         @csrf
         <div class="row clearfix">
@@ -69,6 +71,8 @@
 @endsection
 @section('scripts')
     <script src="{{asset('js/page/accountSubAccounts/create.js')}}"></script>
+    <script src="{{asset('js/page/accounts/create.js')}}"></script>
+    <script src="{{asset('js/page/subAccounts/create.js')}}"></script>
     <script>
         $(document).ready(function () {
             // Handle change event on the party dropdown
